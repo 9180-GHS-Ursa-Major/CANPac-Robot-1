@@ -54,6 +54,11 @@ public class ArmSubsystem extends SubsystemBase {
         encoder.reset();
     }
 
+    public double dToR(double angle) {
+        angleR = angle * (Math.PI / 180);
+        return angleR;
+    }
+
     @Override
     public void periodic() {
         double armAngle = Math.toDegrees(armAngle());
