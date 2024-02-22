@@ -54,6 +54,7 @@ public final class Constants {
 
   public static class ArmPIDConstants {
     public static double kS = 0;
+    public static double kG = 0;
     public static double kV = 0;
     public static double kA = 0;
 

@@ -14,6 +14,7 @@ public class ArmSubsystem extends SubsystemBase {
 
     DutyCycleEncoder encoder = new DutyCycleEncoder(ArmConstants.kEncoderPort);
    
+   ArmFeedforward armFF = new ArmFeedforward(ArmConstants.kS, ArmConstants.kG, ArmConstants.kV, ArmConstants.kA);
 
     public ArmSubsystem() {
         armMotor1.setInverted(false);
