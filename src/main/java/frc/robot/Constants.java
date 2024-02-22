@@ -51,4 +51,11 @@ public final class Constants {
     public static final double encoderResolution = 2048.0;
     public static final double armDPR = -2 * Math.PI;
   }
+
+  public static class ArmPIDConstants {
+    public static double kS = 0;
+    public static double kV = 0;
+    public static double kA = 0;
+
+  }
 }
