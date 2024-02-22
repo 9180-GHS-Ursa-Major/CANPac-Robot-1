@@ -59,7 +59,6 @@ public class RobotContainer {
   Trigger beybladeTrigger = new Trigger(joystick.button(12));
   Trigger gyroResetTrigger = new Trigger(joystick.button(4));
   Trigger everythingResetTrigger = new Trigger(joystick.button(2));
-  Trigger armCoderResetTrigger = new Trigger(joystick.button(6));
 
   //Arms
   Trigger arm45SetTrigger = new Trigger(joystick.povDown());
@@ -90,7 +89,6 @@ public class RobotContainer {
     beybladeTrigger.whileTrue(beybladeCommand);
     gyroResetTrigger.onTrue(resetGyro);
     everythingResetTrigger.onTrue(resetGyro.alongWith(resetEncoderOne));
-    armCoderResetTrigger.onTrue(armCoder);
     arm45SetTrigger.onTrue(setArmAngleTo45);
     armResetTrigger.onTrue(resetArm);
 ;  }
