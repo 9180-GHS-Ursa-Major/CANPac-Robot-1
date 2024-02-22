@@ -18,7 +18,7 @@ public class SetArmAngleTo45 extends Command {
 
     @Override
     public void execute() {
-        armSubsystem.armSet(Math.PI / 4);
+        armSubsystem.armSet(Math.PI / 3);
     }
 
     @Override
