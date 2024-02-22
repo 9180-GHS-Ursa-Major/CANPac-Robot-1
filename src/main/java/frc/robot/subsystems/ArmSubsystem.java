@@ -55,7 +55,7 @@ public class ArmSubsystem extends SubsystemBase {
     }
 
     public double dToR(double angle) {
-        angleR = angle * (Math.PI / 180);
+        double angleR = angle * (Math.PI / 180);
         return angleR;
     }
 
