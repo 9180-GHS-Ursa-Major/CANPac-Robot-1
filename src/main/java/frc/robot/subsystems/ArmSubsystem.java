@@ -25,7 +25,11 @@ public class ArmSubsystem extends SubsystemBase {
     //Control the arm at a certain speed
     //Same problem as before - arm angle isn't normal zero - it's 0 is closer to the angle of the supporting arm (I want to say 16 degrees lower)
     public void armControl(double speed) {
-         armMotor1.set(0.25 * speed);
+        if (armAngle() != Math.PI / 2) {
+            armMotor1.set(0.25 * speed);
+        } else {
+            System.out.println("No.");
+        }
         
     }
 
