@@ -19,7 +19,7 @@ public class ArmControl extends Command {
 
     @Override
     public void execute() {
-        double speed = RobotContainer.controller.getLeftY();
+        double speed = RobotContainer.controller.getRightY();
         armSubsystem.armControl(speed);
     }
 
