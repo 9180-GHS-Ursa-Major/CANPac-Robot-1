@@ -9,6 +9,7 @@ import frc.robot.commands.Auto.Arm.ResetArm;
 import frc.robot.commands.Auto.Arm.SetArmAngleTo45;
 import frc.robot.commands.Auto.Drivetrain.BeybladeCommand;
 import frc.robot.commands.Drive.Arm.ArmControl;
+import frc.robot.commands.Drive.Arm.IntakeCommand;
 import frc.robot.commands.Drive.Drivetrain.DriveWithJoystickCommand;
 import frc.robot.commands.Utilities.MotorControllers.BrakeCommand;
 import frc.robot.commands.Utilities.MotorControllers.CoastCommand;
@@ -17,6 +18,7 @@ import frc.robot.commands.Utilities.Sensors.ResetArmCoder;
 import frc.robot.commands.Utilities.Sensors.ResetGyro;
 import frc.robot.subsystems.ArmSubsystem;
 import frc.robot.subsystems.DrivetrainSubsystem;
+import frc.robot.subsystems.IntakeOuttakeSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
@@ -33,6 +35,7 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final DrivetrainSubsystem m_exampleSubsystem = new DrivetrainSubsystem();
   private final ArmSubsystem armSubsystem = new ArmSubsystem();
+  private final IntakeOuttakeSubsystem intakeOuttakeSubsystem = new IntakeOuttakeSubsystem();
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   public final static CommandJoystick joystick = new CommandJoystick(OperatorConstants.kDriverControllerPort);
@@ -45,6 +48,7 @@ public class RobotContainer {
   private final ResetAllEncoders resetEncoderOne = new ResetAllEncoders(m_exampleSubsystem);
   private final BeybladeCommand beybladeCommand = new BeybladeCommand(m_exampleSubsystem);
   private final ResetGyro resetGyro = new ResetGyro(m_exampleSubsystem);
+  private final IntakeCommand intakeCommand = new IntakeCommand(intakeOuttakeSubsystem);
 
   //Arm
   private final ArmControl armControl = new ArmControl(armSubsystem);
@@ -59,6 +63,7 @@ public class RobotContainer {
   Trigger beybladeTrigger = new Trigger(joystick.button(12));
   Trigger gyroResetTrigger = new Trigger(joystick.button(4));
   Trigger everythingResetTrigger = new Trigger(joystick.button(2));
+  Trigger intakeTrigger = new Trigger(controller.leftBumper());
 
   //Arms
   Trigger arm45SetTrigger = new Trigger(joystick.povDown());
@@ -91,6 +96,7 @@ public class RobotContainer {
     everythingResetTrigger.onTrue(resetGyro.alongWith(resetEncoderOne));
     arm45SetTrigger.onTrue(setArmAngleTo45);
     armResetTrigger.onTrue(resetArm);
+    intakeTrigger.toggleOnTrue(intakeCommand);
 ;  }
 
   /**

@@ -7,8 +7,8 @@ public class ResetArm extends Command {
     private final ArmSubsystem armSubsystem;
     double angle = 1.60570291;
 
-    public ResetArm(ArmSubsystem armSubsystem) {
-        this.armSubsystem = armSubsystem;
+    public ResetArm(ArmSubsystem m_armSubsystem) {
+        this.armSubsystem = m_armSubsystem;
         addRequirements(armSubsystem);
     }
 

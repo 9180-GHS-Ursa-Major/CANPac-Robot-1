@@ -6,8 +6,8 @@ import frc.robot.subsystems.ArmSubsystem;
 public class SetArmAngleTo45 extends Command {
     private final ArmSubsystem armSubsystem;
 
-    public SetArmAngleTo45(ArmSubsystem armSubsystem) {
-        this.armSubsystem = armSubsystem;
+    public SetArmAngleTo45(ArmSubsystem m_armSubsystem) {
+        this.armSubsystem = m_armSubsystem;
         addRequirements(armSubsystem);
     }
 
@@ -18,11 +18,11 @@ public class SetArmAngleTo45 extends Command {
 
     @Override
     public void execute() {
-        armSubsystem.arm45();
+        armSubsystem.armSet(Math.PI / 3);
     }
 
     @Override
     public boolean isFinished() {
-        return true;
+        return armSubsystem.armAngle() >= (Math.PI / 3);
     }
 }
