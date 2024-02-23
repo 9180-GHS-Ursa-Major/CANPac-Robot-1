@@ -18,11 +18,11 @@ public class SetArmAngleTo45 extends Command {
 
     @Override
     public void execute() {
-        armSubsystem.armSet(Math.PI / 3);
+        armSubsystem.arm45();
     }
 
     @Override
     public boolean isFinished() {
-        return armSubsystem.armAngle() >= (Math.PI / 3);
+        return true;
     }
 }
