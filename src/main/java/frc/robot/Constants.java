@@ -59,4 +59,11 @@ public final class Constants {
     public static double kA = 0;
 
   }
+
+  public static class IntakeConstants {
+    public static double intakeSpeed = 0.50;
+    public static int intakeMotorPort = 9;
+    public static int intakeMotorPort2 = 8;
+    public static double intakeTime = 2;
+  }
 }

@@ -32,7 +32,7 @@ public class ArmSubsystem extends SubsystemBase {
     }
 
     public void arm45() {
-        armFF45.calculate(Math.PI / 4, 2);
+        armMotor1.setVoltage(armFF45.calculate(Math.PI / 4, 2));
     }
 
     //Set the arm to a desired angle - use the absolute encoder to read the position

@@ -2,6 +2,7 @@ package frc.robot.commands.Drive.Arm;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.Constants.IntakeConstants;
 import frc.robot.subsystems.IntakeOuttakeSubsystem;
 
 public class IntakeCommand extends Command {
@@ -22,10 +23,10 @@ public class IntakeCommand extends Command {
 
     @Override
     public void execute() {
-        double speed = 0.5;
+
         
-        if (timer.get() < 2) {
-            intakeOuttakeSubsystem.setMotorSpeed(speed);
+        if (timer.get() < IntakeConstants.intakeTime) {
+            intakeOuttakeSubsystem.setMotorSpeed(IntakeConstants.intakeSpeed);
     }
 }
 
@@ -37,6 +38,6 @@ public class IntakeCommand extends Command {
 
     @Override
     public boolean isFinished() {
-        return timer.get() >= 2;
+        return timer.get() >= IntakeConstants.intakeTime;
 }
 }
