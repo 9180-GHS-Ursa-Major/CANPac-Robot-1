@@ -7,6 +7,7 @@ package frc.robot;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Auto.Arm.ResetArm;
 import frc.robot.commands.Auto.Arm.SetArmAngleTo45;
+import frc.robot.commands.Auto.Arm.Arm45FF;
 import frc.robot.commands.Auto.Drivetrain.BeybladeCommand;
 import frc.robot.commands.Drive.Arm.ArmControl;
 import frc.robot.commands.Drive.Arm.IntakeCommand;
@@ -55,6 +56,7 @@ public class RobotContainer {
   private final ResetArmCoder armCoder = new ResetArmCoder(armSubsystem);
   private final SetArmAngleTo45 setArmAngleTo45 = new SetArmAngleTo45(armSubsystem);
   private final ResetArm resetArm = new ResetArm(armSubsystem);
+  private final Arm45FF arm45FF = new Arm45FF(armSubsystem);
 
   //Trigger
   Trigger coastTrigger = new Trigger(joystick.button(8));
@@ -68,6 +70,7 @@ public class RobotContainer {
   //Arms
   Trigger arm45SetTrigger = new Trigger(joystick.povDown());
   Trigger armResetTrigger = new Trigger(joystick.povLeft());
+  Trigger arm45SetTriggerFF = new Trigger(joystick.povRight());
   
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -97,6 +100,7 @@ public class RobotContainer {
     arm45SetTrigger.onTrue(setArmAngleTo45);
     armResetTrigger.onTrue(resetArm);
     intakeTrigger.toggleOnTrue(intakeCommand);
+    arm45SetTriggerFF.whileTrue(arm45FF);
 ;  }
 
   /**
