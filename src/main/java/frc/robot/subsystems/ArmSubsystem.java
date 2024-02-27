@@ -73,6 +73,10 @@ public class ArmSubsystem extends SubsystemBase {
         return angleR;
     }
 
+    public void stop() {
+        armControl(0);
+    }
+
     @Override
     public void periodic() {
         double armAngle = Math.toDegrees(armAngle());
