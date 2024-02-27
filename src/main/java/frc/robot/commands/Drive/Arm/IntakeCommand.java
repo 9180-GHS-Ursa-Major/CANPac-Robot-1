@@ -23,8 +23,6 @@ public class IntakeCommand extends Command {
 
     @Override
     public void execute() {
-
-        
         if (timer.get() < IntakeConstants.intakeTime) {
             intakeOuttakeSubsystem.setMotorSpeed(IntakeConstants.intakeSpeed);
     }

@@ -43,8 +43,8 @@ public final class Constants {
   }
 
   public static class ArmConstants {
-    public static final int kArmPort1 = 5;
-    public static final int kArmPort2 = 8;
+    public static final int kArmPort1 = 8;
+    public static final int kArmPort2 = 5;
     public static final int kEncoderPort = 8;
 
     
@@ -54,16 +54,16 @@ public final class Constants {
 
   public static class ArmPIDConstants {
     public static double kS = 0;
-    public static double kG = 0;
-    public static double kV = 0;
-    public static double kA = 0;
+    public static double kG = 13.56;
+    public static double kV = 0.09;
+    public static double kA = 0.70;
 
   }
 
   public static class IntakeConstants {
     public static double intakeSpeed = 0.50;
     public static int intakeMotorPort = 9;
-    public static int intakeMotorPort2 = 8;
+    public static int intakeMotorPort2 = 1;
     public static double intakeTime = 2;
   }
 }

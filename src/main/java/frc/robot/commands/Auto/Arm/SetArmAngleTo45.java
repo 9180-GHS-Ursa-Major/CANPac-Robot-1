@@ -1,14 +1,19 @@
 package frc.robot.commands.Auto.Arm;
 
+
+
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.ArmSubsystem;
 
 public class SetArmAngleTo45 extends Command {
     private final ArmSubsystem armSubsystem;
+    Timer timer = new Timer();
 
-    public SetArmAngleTo45(ArmSubsystem m_armSubsystem) {
-        this.armSubsystem = m_armSubsystem;
+    public SetArmAngleTo45(ArmSubsystem armSubsystem) {
+        this.armSubsystem = armSubsystem;
         addRequirements(armSubsystem);
+        timer.reset();
     }
 
     @Override
@@ -18,11 +23,11 @@ public class SetArmAngleTo45 extends Command {
 
     @Override
     public void execute() {
-        armSubsystem.armSet(Math.PI / 3);
+        armSubsystem.armPosSet(Math.PI / 4);
     }
 
     @Override
     public boolean isFinished() {
-        return armSubsystem.armAngle() >= (Math.PI / 3);
+        return armSubsystem.armAngle() >= (Math.PI / 4);
     }
 }

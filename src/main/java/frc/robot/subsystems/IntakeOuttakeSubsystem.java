@@ -9,17 +9,18 @@ public class IntakeOuttakeSubsystem extends SubsystemBase {
     private final VictorSP secondVictorSP = new VictorSP(IntakeConstants.intakeMotorPort2);
     
     public IntakeOuttakeSubsystem() {
-        intakeVictorSP.addFollower(secondVictorSP);
         intakeVictorSP.setInverted(false);
-        secondVictorSP.setInverted(true);
+        secondVictorSP.setInverted(false);
     }
 
     public void setMotorSpeed(double speed) {
-        intakeVictorSP.set(speed);
+        intakeVictorSP.set(-speed);
+        secondVictorSP.set(speed);
     }
 
     public void stopIntakeMotor() {
         intakeVictorSP.stopMotor();
+        secondVictorSP.stopMotor();
     }
 
 
